@@ -1,0 +1,57 @@
+.btnplustominus {
+    height: 1em;
+    width: 1em;
+    position: relative;
+    cursor: pointer;
+    transition: .3s all;
+    margin: 0.5em;
+}
+
+.btnplustominus-lines{
+    top: calc(50% - 00.125em/2);
+}
+
+.btnplustominus .btnplustominus-lines:after {
+    width: 1em;
+    transform: rotate(90deg);
+  }
+
+.btnplustominus .btnplustominus-lines, .btnplustominus .btnplustominus-lines:after {
+    background-color: #2e3131;
+}
+
+.btnplustominus .btnplustominus-lines:before {
+    width: 1em;
+    background-color: transparent;
+}
+
+.btnplustominus .btnplustominus-lines, .btnplustominus .btnplustominus-lines:after,
+.btnplustominus .btnplustominus-lines:before {
+    pointer-events: none;
+    display: block;
+    content: '';
+    width: 100%;
+    border-radius: 0.25em;
+    height: 0.125em;
+    position: absolute;
+}
+
+
+.btnplustominus.open .btnplustominus-lines, .btnplustominus.open .btnplustominus-lines:after {
+    background-color: transparent;
+    transition: cubic-bezier(1, 0, 0, 1) 0.3s;
+}
+
+.btnplustominus.open .btnplustominus-lines:before {
+    transition: cubic-bezier(0, 0, 1, 0) 0.3s;
+    background-color: #2e3131;
+}
+
+
+.btnplustominus.closed .btnplustominus-lines, .btnplustominus.closed .btnplustominus-lines:after {
+    transition: cubic-bezier(0, 0, 1, 0) 0.3s;
+}
+
+.btnplustominus.closed .btnplustominus-lines:before {
+    transition: cubic-bezier(1, 0, 0, 1) 0.3s;
+}

@@ -1,0 +1,145 @@
+/*
+* This animated burger is based on three centred divs one upon the other
+* with pseudo-elements on top and bottom -three differents burgers-
+* each burger match to a step of the animation and appears at this step
+* otherwise burgers are transparents
+*/
+
+
+
+/*
+* outer-div css
+*/
+.burgerCenterToCross {
+    height: 1em;
+    width: 1em;
+    position: relative;
+    cursor: pointer;
+    margin: 0.5em;
+}
+
+/*
+* lines aspect, index refers to step of the animation
+*/
+.burgerCenterToCross-lines-1, 
+.burgerCenterToCross-lines-1:before, 
+.burgerCenterToCross-lines-1:after, 
+.burgerCenterToCross-lines-2, 
+.burgerCenterToCross-lines-2:before, 
+.burgerCenterToCross-lines-2:after, 
+.burgerCenterToCross-lines-3, 
+.burgerCenterToCross-lines-3:before, 
+.burgerCenterToCross-lines-3:after {
+    pointer-events: none;
+    display: block;
+    content: '';
+    width: 100%;
+    border-radius: 0.25em;
+    height: 0.125em;
+    position: absolute;
+    top: calc(50% - 0.125em/2);
+    transition: 0.25s;
+}
+
+.burgerCenterToCross-lines-1:before, .burgerCenterToCross-lines-3:before
+{
+    transform: translateY(0.25em);
+}
+
+.burgerCenterToCross-lines-1:after, .burgerCenterToCross-lines-3:after {
+    transform: translateY(-0.25em);
+}
+
+.burgerCenterToCross-lines-1, 
+.burgerCenterToCross-lines-1:before, .burgerCenterToCross-lines-1:after, 
+.burgerCenterToCross-lines-2:before, .burgerCenterToCross-lines-2:after {
+    background-color: #2e3131;
+}
+
+.burgerCenterToCross-lines-2, 
+.burgerCenterToCross-lines-3,
+.burgerCenterToCross-lines-3:before, .burgerCenterToCross-lines-3:after {
+    background-color: transparent;
+}
+
+/*
+* First step of opening transition
+* Last step of closing transition
+*/
+
+.burgerCenterToCross.open .burgerCenterToCross-lines-1,
+.burgerCenterToCross.open .burgerCenterToCross-lines-1:after,
+.burgerCenterToCross.open .burgerCenterToCross-lines-1:before {
+    transition-property: background-color;
+    transition-duration: 0s;
+    background-color: transparent;
+}
+
+.burgerCenterToCross.closed .burgerCenterToCross-lines-1,
+.burgerCenterToCross.closed .burgerCenterToCross-lines-1:after,
+.burgerCenterToCross.closed .burgerCenterToCross-lines-1:before {
+    transition-property: background-color;
+    transition-duration: 0s;
+    transition-delay: 0.25s;
+    background-color: #2e3131;
+}
+
+/*
+* Second step of transition, changes on the second set of lines
+*/
+.burgerCenterToCross.open .burgerCenterToCross-lines-2:after,
+.burgerCenterToCross.open .burgerCenterToCross-lines-2:before {
+    transition-property: transform, background-color;
+    transition-duration: 0.125s, 0s;
+    transition-delay: 0s, 0.125s;
+    background-color: transparent;
+}
+
+.burgerCenterToCross.open .burgerCenterToCross-lines-2:after {
+    transform: translateY(-0.25em);
+}
+
+.burgerCenterToCross.open .burgerCenterToCross-lines-2:before {
+    transform: translateY(0.25em);
+}
+
+.burgerCenterToCross.closed .burgerCenterToCross-lines-2:after,
+.burgerCenterToCross.closed .burgerCenterToCross-lines-2:before {
+    transition-property: transform, background-color;
+    transition-duration: 0.125s, 0s;
+    transition-delay: 0.125s, 0.125s;
+    background-color: #2e3131;
+    transform: translateY(0em);
+}
+
+/*
+* Third step of transition, changes on the third step of lines
+*/
+.burgerCenterToCross.open .burgerCenterToCross-lines-3:after, 
+.burgerCenterToCross.open .burgerCenterToCross-lines-3:before {
+    transition-property: background-color, transform, height;
+    transition-duration: 0s, 0.125s, 0.125s;
+    transition-timing-function: step-start, ease-in-out, ease-in-out;
+    transition-delay: 0.125s, 0.125s, 0.125s;
+}
+
+.burgerCenterToCross.open .burgerCenterToCross-lines-3:after,
+.burgerCenterToCross.open .burgerCenterToCross-lines-3:before {
+    background-color: #2e3131;
+    height: 0.15em;
+}
+
+.burgerCenterToCross.open .burgerCenterToCross-lines-3:after {
+    transform: rotate(-45deg);
+}
+
+.burgerCenterToCross.open .burgerCenterToCross-lines-3:before {
+    transform: rotate(45deg);
+}
+
+
+
+
+
+
+

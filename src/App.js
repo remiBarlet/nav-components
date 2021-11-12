@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import BtnPlus from './components/buttons/BtnPlus';
+import BtnPlusSpinner from './components/buttons/BtnPlusSpinner';
+import BtnPlusToMinus from './components/buttons/BtnPlusToMinus';
+import BurgerSlider from './components/buttons/BurgerSlider';
+import BurgerCenterToCross from './components/buttons/BurgerCenterToCross'
+import DemoLine from './components/DemoLine';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DemoLine>
+        <BurgerCenterToCross />
+      </DemoLine>
+      <DemoLine>
+        <BurgerSlider />
+      </DemoLine>
+      <DemoLine >
+        <BtnPlus />
+      </DemoLine>
+      <DemoLine >
+        <BtnPlusToMinus />
+      </DemoLine>
+      <DemoLine>
+        <BtnPlusSpinner />
+      </DemoLine>
+
     </div>
   );
 }
