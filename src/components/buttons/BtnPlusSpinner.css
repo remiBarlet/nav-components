@@ -1,0 +1,43 @@
+.btnplusspinner {
+    height: 1em;
+    width: 1em;
+    position: relative;
+    cursor: pointer;
+    transition: .3s all;
+    margin: 0.5em;
+}
+
+.btnplusspinner-lines{
+    top: calc(50% - 00.125em/2);
+}
+
+.btnplusspinner .btnplusspinner-lines:after {
+    width: 1em;
+    transform: rotate(90deg);
+  }
+
+.btnplusspinner .btnplusspinner-lines, .btnplusspinner .btnplusspinner-lines:after {
+    pointer-events: none;
+    display: block;
+    content: '';
+    width: 100%;
+    border-radius: 0.25em;
+    background-color: #2e3131;
+    height: 0.125em;
+    position: absolute;
+}
+
+.btnplusspinner.open .btnplusspinner-lines {
+    transform: rotate(-405deg);
+    transition: 0.3s;
+}
+
+.btnplusspinner.open .btnplusspinner-lines, .btnplusspinner.open .btnplusspinner-lines:after {
+    height: 0.15em;
+}
+
+
+.btnplusspinner.closed .btnplusspinner-lines {
+    transform: rotate(360deg);
+    transition: 0.3s;
+}

@@ -1,0 +1,60 @@
+.burger {
+    height: 1em;
+    width: 1em;
+    margin: 0.5em;
+    position: relative;
+    cursor: pointer;
+}
+
+.burger .burger-lines {
+    top: calc(50% - 0.125em/2);
+}
+    
+.burger .burger-lines, .burger .burger-lines:after, .burger .burger-lines:before {
+    pointer-events: none;
+    display: block;
+    content: '';
+    width: 100%;
+    border-radius: 0.25em;
+    background-color: #2e3131;
+    height: 0.125em;
+    position: absolute;
+    transform: rotate(0); 
+}
+
+.burger .burger-lines:after {
+    transform: translateY(-0.25em); 
+}
+
+.burger .burger-lines:before {
+    transform: translateY(0.25em); 
+}
+
+.burger .burger-lines:after, .burger .burger-lines:before {
+    left: 0;
+    width: 1em; 
+}
+  
+.burger .burger-lines, .burger .burger-lines:after, .burger .burger-lines:before {
+    transition: all .25s; 
+}
+  
+.burger.open .burger-lines {
+    transform: translateX(-1.5em);
+    background-color: transparent; 
+}
+
+.burger.open .burger-lines:before, .burger.open .burger-lines:after {
+    left: 0.5em;
+    top: 0px; 
+    height: 0.15em;
+
+}
+
+.burger.open .burger-lines:before {
+    transform: translateX(1em) rotate(45deg); 
+}
+
+.burger.open .burger-lines:after {
+    transform: translateX(1em) rotate(-45deg); 
+}

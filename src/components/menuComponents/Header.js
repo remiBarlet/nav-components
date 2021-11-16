@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import MobileBar from './MobileBar'
+import MenuBlock from './MenuBlock'
 import Navbar from './Navbar'
-import './Header.css'
 import IsASmallDevice from '../utils/IsASmallDevice'
 import { SMALL_DEVICE } from '../utils/config'
 import PropTypes from 'prop-types'
+import './Header.css'
 
 
 const Header = ( props ) => {
@@ -45,8 +46,9 @@ const Header = ( props ) => {
     //the Navbar is visible if opened on small device and allways otherwise
     return(
         <header onMouseLeave={ isOpen ? toggleMenu : null } >
-            { isSmall ? <MobileBar onClick={ toggleMenu } isOpen={ isOpen } /> : null }
-            { (isSmall && isOpen) || !isSmall ? <Navbar items={ props.items } rsxSoc={ props.rsxSoc }/> : null }
+            { isSmall ? <MobileBar onClick={ toggleMenu } isOpen={ isOpen } href='' title='MobileBar' /> : null }
+            { (isSmall && isOpen) ? <MenuBlock /> : null }
+            { !isSmall ? <Navbar items={ props.items } rsxSoc={ props.rsxSoc }/> : null }
         </header>
     )
 
