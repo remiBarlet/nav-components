@@ -137,6 +137,16 @@
     transform: rotate(45deg);
 }
 
+.burgerCenterToCross.closed .burgerCenterToCross-lines-3:after,
+.burgerCenterToCross.closed .burgerCenterToCross-lines-3:before {
+    transition-property: background-color, transform, height;
+    transition-duration: 0s, 0.125s, 0.125s;
+    transition-timing-function: step-end, ease-in-out, ease-in-out;
+    transition-delay: 0.125s, 0s, 0s;
+}
+
+
+
 
 
 
