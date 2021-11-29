@@ -1,4 +1,11 @@
+/*
+* author: Remi Barlet
+* email: rbarlet@protonmail.com
+* Demoline to present various components
+*/
+
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import './DemoLine.css'
 
 const DemoLine = (props) => {
@@ -11,13 +18,26 @@ const DemoLine = (props) => {
         React.cloneElement(child, { isOpen })    
     )
 
+    //object to override standard color and background-color of the line
+    let style = {}
+    props.color && (style['--color'] = `${ props.color }`)
+    props.bkColor && (style['--bkColor']= `${ props.bkColor }`)
+
     return(
-        <div className='demoLine'>
+        <div className='demoLine' style={ style }>
+            <div className='title'><a>{ props.title }</a></div>
             <div className='clickZone' onClick={() => setIsOpen(!isOpen)} >
                 { childrenWithProps }
             </div>
         </div>
     )
+}
+
+DemoLine.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    color: PropTypes.string,
+    bkColor: PropTypes.string,
+    title: PropTypes.string
 }
 
 export default DemoLine
