@@ -1,14 +1,32 @@
+/*
+* Author: Remi Barlet
+* email: rbarlet@protonmail.com
+* This animated 'plus' button is based on a base line (horizontal)
+* and a pseudo-element ::after line (vertical)
+* Variable: --duration for the duration of the animation
+* Variable: --btnColor for the color of the plus/minus button
+* Variables may be overriden by the js file calling this css 
+*/
+
+/*
+* outer-div css
+*/
 .btnplus {
     height: 1em;
     width: 1em;
     position: relative;
     cursor: pointer;
-    transition: .3s all;
     margin: 0.5em;
+    --duration: 300ms;
+    --btnColor: #2e3131;
 }
 
+/*
+* plus-lines aspect
+*/
 .btnplus-lines{
     top: calc(50% - 00.125em/2);
+    transition: var(--duration);
 }
 
 .btnplus .btnplus-lines:after {
@@ -22,21 +40,18 @@
     content: '';
     width: 100%;
     border-radius: 0.25em;
-    background-color: #2e3131;
+    background-color: var(--btnColor);
     height: 0.125em;
     position: absolute;
 }
 
+/*
+* rotation on click
+*/
 .btnplus.open .btnplus-lines {
     transform: rotate(-45deg);
-    transition: 0.3s;
 }
 
 .btnplus.open .btnplus-lines, .btnplus.open .btnplus-lines:after {
     height: 0.15em;
-}
-
-
-.btnplus.closed .btnplus-lines, .btnplus.closed .btnplus-lines:after {
-    transition: 0.3s;
 }

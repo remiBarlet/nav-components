@@ -3,6 +3,9 @@
 * with pseudo-elements on top and bottom -three differents burgers-
 * each burger match to a step of the animation and appears at this step
 * otherwise burgers are transparents
+* Variable: --duration for the duration of the animation
+* Variable: --burgerColor for the color of the lines
+* Variables may be overriden by the js file calling this css 
 */
 
 
@@ -16,6 +19,8 @@
     position: relative;
     cursor: pointer;
     margin: 0.5em;
+    --duration: 0.5s;
+    --burgerColor: #2e3131;
 }
 
 /*
@@ -38,7 +43,7 @@
     height: 0.125em;
     position: absolute;
     top: calc(50% - 0.125em/2);
-    transition: 0.25s;
+    transition: var(--duration);
 }
 
 .burgerCenterToCross-lines-1:before, .burgerCenterToCross-lines-3:before
@@ -53,7 +58,7 @@
 .burgerCenterToCross-lines-1, 
 .burgerCenterToCross-lines-1:before, .burgerCenterToCross-lines-1:after, 
 .burgerCenterToCross-lines-2:before, .burgerCenterToCross-lines-2:after {
-    background-color: #2e3131;
+    background-color: var(--burgerColor);
 }
 
 .burgerCenterToCross-lines-2, 
@@ -80,8 +85,8 @@
 .burgerCenterToCross.closed .burgerCenterToCross-lines-1:before {
     transition-property: background-color;
     transition-duration: 0s;
-    transition-delay: 0.25s;
-    background-color: #2e3131;
+    transition-delay: var(--duration);
+    background-color: var(--burgerColor);
 }
 
 /*
@@ -90,8 +95,8 @@
 .burgerCenterToCross.open .burgerCenterToCross-lines-2:after,
 .burgerCenterToCross.open .burgerCenterToCross-lines-2:before {
     transition-property: transform, background-color;
-    transition-duration: 0.125s, 0s;
-    transition-delay: 0s, 0.125s;
+    transition-duration: calc(var(--duration)/2), 0s;
+    transition-delay: 0s, calc(var(--duration)/2);
     background-color: transparent;
 }
 
@@ -106,9 +111,9 @@
 .burgerCenterToCross.closed .burgerCenterToCross-lines-2:after,
 .burgerCenterToCross.closed .burgerCenterToCross-lines-2:before {
     transition-property: transform, background-color;
-    transition-duration: 0.125s, 0s;
-    transition-delay: 0.125s, 0.125s;
-    background-color: #2e3131;
+    transition-duration: calc(var(--duration)/2), 0s;
+    transition-delay: calc(var(--duration)/2), calc(var(--duration)/2);
+    background-color: var(--burgerColor);
     transform: translateY(0em);
 }
 
@@ -118,14 +123,14 @@
 .burgerCenterToCross.open .burgerCenterToCross-lines-3:after, 
 .burgerCenterToCross.open .burgerCenterToCross-lines-3:before {
     transition-property: background-color, transform, height;
-    transition-duration: 0s, 0.125s, 0.125s;
+    transition-duration: 0s, calc(var(--duration)/2), calc(var(--duration)/2);
     transition-timing-function: step-start, ease-in-out, ease-in-out;
-    transition-delay: 0.125s, 0.125s, 0.125s;
+    transition-delay: calc(var(--duration)/2), calc(var(--duration)/2), calc(var(--duration)/2);
 }
 
 .burgerCenterToCross.open .burgerCenterToCross-lines-3:after,
 .burgerCenterToCross.open .burgerCenterToCross-lines-3:before {
-    background-color: #2e3131;
+    background-color: var(--burgerColor);
     height: 0.15em;
 }
 
@@ -140,9 +145,9 @@
 .burgerCenterToCross.closed .burgerCenterToCross-lines-3:after,
 .burgerCenterToCross.closed .burgerCenterToCross-lines-3:before {
     transition-property: background-color, transform, height;
-    transition-duration: 0s, 0.125s, 0.125s;
+    transition-duration: 0s, calc(var(--duration)/2), calc(var(--duration)/2);
     transition-timing-function: step-end, ease-in-out, ease-in-out;
-    transition-delay: 0.125s, 0s, 0s;
+    transition-delay: calc(var(--duration)/2), 0s, 0s;
 }
 
 

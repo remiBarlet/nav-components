@@ -1,11 +1,30 @@
+/*
+* Author: Remi Barlet
+* email: rbarlet@protonmail.com
+* This animated burger is based on a central line with pseudo-elements
+* the central line slide to the left and desappear on click
+* pseudo-elements rotate to form a cross
+* Variable: --duration for the duration of the animation
+* Variable: --burgerColor for the color of the lines
+* Variables may be overriden by the js file calling this css 
+*/
+
+/*
+* outer-div css
+*/
 .burger {
     height: 1em;
     width: 1em;
     margin: 0.5em;
     position: relative;
     cursor: pointer;
+    --duration: 0.25s;
+    --burgerColor: #2e3131;
 }
 
+/*
+* burger lines aspect
+*/ 
 .burger .burger-lines {
     top: calc(50% - 0.125em/2);
 }
@@ -16,7 +35,7 @@
     content: '';
     width: 100%;
     border-radius: 0.25em;
-    background-color: #2e3131;
+    background-color: var(--burgerColor);
     height: 0.125em;
     position: absolute;
     transform: rotate(0); 
@@ -35,10 +54,16 @@
     width: 1em; 
 }
   
+/*
+* animation speed and behaviour
+*/
 .burger .burger-lines, .burger .burger-lines:after, .burger .burger-lines:before {
-    transition: all .25s; 
+    transition: all var(--duration); 
 }
-  
+ 
+/*
+* burger final aspect 
+*/
 .burger.open .burger-lines {
     transform: translateX(-1.5em);
     background-color: transparent; 

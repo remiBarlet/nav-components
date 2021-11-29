@@ -1,14 +1,32 @@
+/*
+* Author: Remi Barlet
+* email: rbarlet@protonmail.com
+* This animated 'plus' button is based on a base line and a pseudo-element ::after
+* the pseudo-element ::before is used to be the 'minus' button of the animation
+* Variable: --duration for the duration of the animation
+* Variable: --btnColor for the color of the plus/minus button
+* Variables may be overriden by the js file calling this css 
+*/
+
+/*
+* outer-div css
+*/
 .btnplustominus {
     height: 1em;
     width: 1em;
     position: relative;
     cursor: pointer;
-    transition: .3s all;
     margin: 0.5em;
+    --duration: 0.3s;
+    --btnColor: #2e3131;
 }
 
+/*
+* plus-lines
+*/
 .btnplustominus-lines{
     top: calc(50% - 00.125em/2);
+    transition: var(--duration);
 }
 
 .btnplustominus .btnplustominus-lines:after {
@@ -17,14 +35,20 @@
   }
 
 .btnplustominus .btnplustominus-lines, .btnplustominus .btnplustominus-lines:after {
-    background-color: #2e3131;
+    background-color: var(--btnColor);
 }
 
+/*
+* minus-line 
+*/
 .btnplustominus .btnplustominus-lines:before {
     width: 1em;
     background-color: transparent;
 }
 
+/*
+* all lines style
+*/
 .btnplustominus .btnplustominus-lines, .btnplustominus .btnplustominus-lines:after,
 .btnplustominus .btnplustominus-lines:before {
     pointer-events: none;
@@ -36,22 +60,30 @@
     position: absolute;
 }
 
-
+/*
+* onClick from closed to opened 
+* first step (cubic-bezier curbs) the plus desappears
+* second step the minus appears
+*/
 .btnplustominus.open .btnplustominus-lines, .btnplustominus.open .btnplustominus-lines:after {
     background-color: transparent;
-    transition: cubic-bezier(1, 0, 0, 1) 0.3s;
+    transition: cubic-bezier(1, 0, 0, 1) var(--duration);
 }
 
 .btnplustominus.open .btnplustominus-lines:before {
-    transition: cubic-bezier(0, 0, 1, 0) 0.3s;
-    background-color: #2e3131;
+    transition: cubic-bezier(0, 0, 1, 0) var(--duration);
+    background-color: var(--btnColor);
 }
 
-
+/*
+* onClick from opened to closed
+* first step (cubic-bezier curbs) the minus desappears
+* second step the plus appears
+*/
 .btnplustominus.closed .btnplustominus-lines, .btnplustominus.closed .btnplustominus-lines:after {
-    transition: cubic-bezier(0, 0, 1, 0) 0.3s;
+    transition: cubic-bezier(0, 0, 1, 0) var(--duration);
 }
 
 .btnplustominus.closed .btnplustominus-lines:before {
-    transition: cubic-bezier(1, 0, 0, 1) 0.3s;
+    transition: cubic-bezier(1, 0, 0, 1) var(--duration);
 }
