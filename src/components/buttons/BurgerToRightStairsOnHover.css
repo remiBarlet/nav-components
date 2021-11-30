@@ -1,0 +1,84 @@
+/*
+* Author: Remi Barlet
+* email: rbarlet@protonmail.com
+* This animated burger is based on three lines
+* the lines are less wide on hover and top and bottom lines slide 
+* to respectively the right and the left
+* Variable: --duration for the duration of the animation
+* Variable: --burgerColor for the color of the lines
+* Variables may be overriden by the js file calling this css 
+*/
+
+/*
+* outer-div css
+*/
+.burgerRightStairs {
+    height: 1em;
+    width: 1em;
+    margin: 0.5em;
+    position: relative;
+    cursor: pointer;
+    --duration: 0.25s;
+    --burgerColor: #2e3131;
+}
+
+/*
+* burger aspect
+*/
+.burgerRightStairs .burgerRightStairs-line-1,
+.burgerRightStairs .burgerRightStairs-line-2,
+.burgerRightStairs .burgerRightStairs-line-3 {
+    top: calc(50% - 0.125em/2);
+}
+
+
+
+.burgerRightStairs .burgerRightStairs-line-1, 
+.burgerRightStairs .burgerRightStairs-line-2,
+.burgerRightStairs .burgerRightStairs-line-3 {
+    pointer-events: none;
+    display: block;
+    content: '';
+    width: 100%;
+    border-radius: 0.25em;
+    background-color: var(--burgerColor);
+    height: 0.125em;
+    position: absolute;
+}
+
+.burgerRightStairs .burgerRightStairs-line-1 {
+    transform: translateY(-0.25em); 
+}
+
+.burgerRightStairs .burgerRightStairs-line-3 {
+    transform: translateY(0.25em); 
+}
+
+/*
+* animation speed
+*/
+.burgerRightStairs .burgerRightStairs-line-1, 
+.burgerRightStairs .burgerRightStairs-line-2,
+.burgerRightStairs .burgerRightStairs-line-3 {
+    transition: all var(--duration);
+}
+
+/*
+* animation on hover
+*/
+.burgerRightStairs:hover .burgerRightStairs-line-2 {
+    transform-origin: center;
+    transform: scaleX(70%);
+} 
+
+.burgerRightStairs:hover .burgerRightStairs-line-1 {
+    transform-origin: right;
+    transform: scaleX(70%) translateY(-0.25em);
+}
+
+.burgerRightStairs:hover .burgerRightStairs-line-3 {
+    transform-origin: left;
+    transform: scaleX(70%) translateY(0.25em);
+} 
+
+
