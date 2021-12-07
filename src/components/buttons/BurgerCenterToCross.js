@@ -13,21 +13,27 @@ import './BurgerCenterToCross.css'
 
 const BurgerCenterToCross = (props) => {
 
+    let wrapperStyle = {}
+    props.fontSize && (wrapperStyle['--fontSize'] = `${ props.fontSize }em`)
     let style= {}
     props.duration && (style['--duration']= `${ props.duration }ms`)
     props.burgerColor && (style['--burgerColor']= `${ props.burgerColor }`)
 
     return(
-        <div className={`burgerCenterToCross ${ props.isOpen ? 'open' : 'closed' }`}
-        style={ style } >
-            <div className='burgerCenterToCross-lines-1'></div>
-            <div className='burgerCenterToCross-lines-2'></div>
-            <div className='burgerCenterToCross-lines-3'></div>
+        <div className='burgerCenterToCrossWrapper' onClick={ props.onClick } style={ wrapperStyle }>
+            <div className={`burgerCenterToCross ${ props.isOpen ? 'open' : 'closed' }`}
+            style={ style } >
+                <div className='burgerCenterToCross-lines-1'></div>
+                <div className='burgerCenterToCross-lines-2'></div>
+                <div className='burgerCenterToCross-lines-3'></div>
+            </div>
         </div>
     )
 }
 
 BurgerCenterToCross.propTypes = {
+    onClick: PropTypes.func,
+    fontSize: PropTypes.number,
     isOpen: PropTypes.bool.isRequired,
     duration: PropTypes.number,
     burgerColor: PropTypes.string

@@ -11,7 +11,14 @@
 /*
 * outer-div css
 */
-.btnplustominus {
+.btnPlusToMinusWrapper {
+    float: right;
+    --fontSize: 2em;
+    font-size: var(--fontSize);
+    cursor: pointer;
+}
+
+.btnPlusToMinus {
     height: 1em;
     width: 1em;
     position: relative;
@@ -24,24 +31,24 @@
 /*
 * plus-lines
 */
-.btnplustominus-lines{
+.btnPlusToMinus-lines{
     top: calc(50% - 00.125em/2);
     transition: var(--duration);
 }
 
-.btnplustominus .btnplustominus-lines:after {
+.btnPlusToMinus .btnPlusToMinus-lines:after {
     width: 1em;
     transform: rotate(90deg);
   }
 
-.btnplustominus .btnplustominus-lines, .btnplustominus .btnplustominus-lines:after {
+.btnPlusToMinus .btnPlusToMinus-lines, .btnPlusToMinus .btnPlusToMinus-lines:after {
     background-color: var(--btnColor);
 }
 
 /*
 * minus-line 
 */
-.btnplustominus .btnplustominus-lines:before {
+.btnPlusToMinus .btnPlusToMinus-lines:before {
     width: 1em;
     background-color: transparent;
 }
@@ -49,8 +56,8 @@
 /*
 * all lines style
 */
-.btnplustominus .btnplustominus-lines, .btnplustominus .btnplustominus-lines:after,
-.btnplustominus .btnplustominus-lines:before {
+.btnPlusToMinus .btnPlusToMinus-lines, .btnPlusToMinus .btnPlusToMinus-lines:after,
+.btnPlusToMinus .btnPlusToMinus-lines:before {
     pointer-events: none;
     display: block;
     content: '';
@@ -65,12 +72,12 @@
 * first step (cubic-bezier curbs) the plus desappears
 * second step the minus appears
 */
-.btnplustominus.open .btnplustominus-lines, .btnplustominus.open .btnplustominus-lines:after {
+.btnPlusToMinus.open .btnPlusToMinus-lines, .btnPlusToMinus.open .btnPlusToMinus-lines:after {
     background-color: transparent;
     transition: cubic-bezier(1, 0, 0, 1) var(--duration);
 }
 
-.btnplustominus.open .btnplustominus-lines:before {
+.btnPlusToMinus.open .btnPlusToMinus-lines:before {
     transition: cubic-bezier(0, 0, 1, 0) var(--duration);
     background-color: var(--btnColor);
 }
@@ -80,10 +87,10 @@
 * first step (cubic-bezier curbs) the minus desappears
 * second step the plus appears
 */
-.btnplustominus.closed .btnplustominus-lines, .btnplustominus.closed .btnplustominus-lines:after {
+.btnPlusToMinus.closed .btnPlusToMinus-lines, .btnPlusToMinus.closed .btnPlusToMinus-lines:after {
     transition: cubic-bezier(0, 0, 1, 0) var(--duration);
 }
 
-.btnplustominus.closed .btnplustominus-lines:before {
+.btnPlusToMinus.closed .btnPlusToMinus-lines:before {
     transition: cubic-bezier(1, 0, 0, 1) var(--duration);
 }

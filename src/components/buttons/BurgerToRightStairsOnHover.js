@@ -12,23 +12,30 @@ import './BurgerToRightStairsOnHover.css'
 
 const BurgerRightStairs = (props) => {
 
+    let wrapperStyle = {}
+    props.fontSize && (wrapperStyle['--fontSize'] = `${ props.fontSize }em`)
     let style = {}
     props.duration && (style['--duration'] = `${ props.duration }ms`)
     props.color && (style['--burgerColor'] = `${ props.burgerColor }`)
 
     return(
-        <div className={`burgerRightStairs ${ props.isOpen ? 'open' : 'closed' }`}
-                style={ style } >
-            <div className='burgerRightStairs-line-1'></div>
-            <div className='burgerRightStairs-line-2'></div>
-            <div className='burgerRightStairs-line-3'></div>
+
+        <div className='burgerRightStairsWrapper' onClick={  props.onClick } style={ wrapperStyle }>
+            <div className={`burgerRightStairs ${ props.isOpen ? 'open' : 'closed' }`}
+                    style={ style } >
+                <div className='burgerRightStairs-line-1'></div>
+                <div className='burgerRightStairs-line-2'></div>
+                <div className='burgerRightStairs-line-3'></div>
+            </div>
         </div>
     )
 }
 
 BurgerRightStairs.propTypes = {
     isOpen: PropTypes.bool.isRequired,
+    onClick: PropTypes.func,
     duration: PropTypes.number,
+    fontSize: PropTypes.number,
     burgerColor: PropTypes.string
 }
 

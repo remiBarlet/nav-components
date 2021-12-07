@@ -12,19 +12,25 @@ import  './BtnPlusToMinus.css'
 
 const BtnPlusToMinus = (props) => {
 
+    let wrapperStyle = {}
+    props.fontSize && (wrapperStyle['--fontSize'] = `${ props.fontSize }em`)
     let style = {}
     props.duration && (style['--duration']= `${ props.duration }ms`)
     props.btnColor && (style['--btnColor']= `${ props.btnColor }`)
 
     return(
-        <div className={`btnplustominus ${props.isOpen  ? 'open' : 'closed'}`} 
-             style={ style } >
-            <div className='btnplustominus-lines'></div>
+        <div className='btnPlusToMinusWrapper' onClick={ props.onClick } style={ wrapperStyle }>
+            <div className={`btnPlusToMinus ${props.isOpen  ? 'open' : 'closed'}`}
+                 style={ style } >
+                <div className='btnPlusToMinus-lines'></div>
+            </div>
         </div>
     )
 } 
 
 BtnPlusToMinus.propTypes = {
+    onClick: PropTypes.func,
+    fontSize: PropTypes.number,
     isOpen: PropTypes.bool.isRequired,
     duration: PropTypes.number,
     btnColor: PropTypes.string

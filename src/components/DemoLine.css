@@ -22,8 +22,3 @@
     font-weight: bold;
     color: var(--color);
 }
-
-.clickZone {
-    float: right;
-    font-size: 2em;
-}

@@ -12,19 +12,25 @@ import './BtnPlus.css'
 
 const BtnPlus = (props) => {
 
+    let wrapperStyle = {}
+    props.fontSize && (wrapperStyle['--fontSize'] = `${ props.fontSize }em`)
     let style= {}
     props.duration && (style['--duration']= `${ props.duration }ms`)
     props.btnColor && (style['--btnColor']= `${ props.btnColor }`)
 
     return(
-        <div className={`btnplus ${props.isOpen  ? 'open' : 'closed'}`}
-             style={ style } >
-            <div className='btnplus-lines'></div>
+        <div className='btnPlusWrapper' onClick={ props.onClick } style={ wrapperStyle }>
+            <div className={`btnPlus ${props.isOpen  ? 'open' : 'closed'}`}
+                 style={ style } >
+                <div className='btnPlus-lines'></div>
+            </div>
         </div>
     )
 }
 
 BtnPlus.propTypes = {
+    onClick: PropTypes.func,
+    fontSize: PropTypes.number,
     isOpen: PropTypes.bool.isRequired,
     duration: PropTypes.number,
     btnColor: PropTypes.string

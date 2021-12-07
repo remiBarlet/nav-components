@@ -11,7 +11,14 @@
 /*
 * outer-div css
 */
-.btnplusspinner {
+.btnPlusSpinnerWrapper {
+    float: right;
+    --fontSize: 2em;
+    font-size: var(--fontSize);
+    cursor: pointer;
+}
+
+.btnPlusSpinner {
     height: 1em;
     width: 1em;
     position: relative;
@@ -24,17 +31,17 @@
 /*
 * plus-lines
 */
-.btnplusspinner-lines{
+.btnPlusSpinner-lines{
     top: calc(50% - 00.125em/2);
     transition: var(--duration);
 }
 
-.btnplusspinner .btnplusspinner-lines:after {
+.btnPlusSpinner .btnPlusSpinner-lines:after {
     width: 1em;
     transform: rotate(90deg);
   }
 
-.btnplusspinner .btnplusspinner-lines, .btnplusspinner .btnplusspinner-lines:after {
+.btnPlusSpinner .btnPlusSpinner-lines, .btnPlusSpinner .btnPlusSpinner-lines:after {
     pointer-events: none;
     display: block;
     content: '';
@@ -48,15 +55,15 @@
 /*
 * spinning onClick
 */
-.btnplusspinner.open .btnplusspinner-lines {
+.btnPlusSpinner.open .btnPlusSpinner-lines {
     transform: rotate(-405deg);
 }
 
-.btnplusspinner.open .btnplusspinner-lines, .btnplusspinner.open .btnplusspinner-lines:after {
+.btnPlusSpinner.open .btnPlusSpinner-lines, .btnPlusSpinner.open .btnPlusSpinner-lines:after {
     height: 0.15em;
 }
 
 
-.btnplusspinner.closed .btnplusspinner-lines {
+.btnPlusSpinner.closed .btnPlusSpinner-lines {
     transform: rotate(360deg);
 }

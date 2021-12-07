@@ -11,7 +11,14 @@
 /*
 * outer-div css
 */
-.btnplus {
+.btnPlusWrapper {
+    float: right;
+    --fontSize: 2em;
+    font-size: var(--fontSize);
+    cursor: pointer;
+}
+
+.btnPlus {
     height: 1em;
     width: 1em;
     position: relative;
@@ -24,17 +31,17 @@
 /*
 * plus-lines aspect
 */
-.btnplus-lines{
+.btnPlus-lines{
     top: calc(50% - 00.125em/2);
     transition: var(--duration);
 }
 
-.btnplus .btnplus-lines:after {
+.btnPlus .btnPlus-lines:after {
     width: 1em;
     transform: rotate(90deg);
   }
 
-.btnplus .btnplus-lines, .btnplus .btnplus-lines:after {
+.btnPlus .btnPlus-lines, .btnPlus .btnPlus-lines:after {
     pointer-events: none;
     display: block;
     content: '';
@@ -48,10 +55,10 @@
 /*
 * rotation on click
 */
-.btnplus.open .btnplus-lines {
+.btnPlus.open .btnPlus-lines {
     transform: rotate(-45deg);
 }
 
-.btnplus.open .btnplus-lines, .btnplus.open .btnplus-lines:after {
+.btnPlus.open .btnPlus-lines, .btnPlus.open .btnPlus-lines:after {
     height: 0.15em;
 }

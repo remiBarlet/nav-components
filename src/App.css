@@ -1,3 +1,10 @@
+
+.App {
+  max-width: 1240px;
+  margin: auto;
+}
+
 header li {
   list-style: none;
 }
+

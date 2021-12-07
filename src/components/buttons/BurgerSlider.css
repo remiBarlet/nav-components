@@ -2,7 +2,7 @@
 * Author: Remi Barlet
 * email: rbarlet@protonmail.com
 * This animated burger is based on a central line with pseudo-elements
-* the central line slide to the left and desappear on click
+* the central line slides to the left and disappears on click
 * pseudo-elements rotate to form a cross
 * Variable: --duration for the duration of the animation
 * Variable: --burgerColor for the color of the lines
@@ -12,6 +12,13 @@
 /*
 * outer-div css
 */
+.burgerWrapper {
+    float: right;
+    --fontSize: 2em;
+    font-size: var(--fontSize);
+    cursor: pointer;
+}
+
 .burger {
     height: 1em;
     width: 1em;

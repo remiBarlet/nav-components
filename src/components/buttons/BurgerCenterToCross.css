@@ -13,6 +13,13 @@
 /*
 * outer-div css
 */
+.burgerCenterToCrossWrapper {
+    float: right;
+    --fontSize: 2em;
+    font-size: var(--fontSize);
+    cursor: pointer;
+}
+
 .burgerCenterToCross {
     height: 1em;
     width: 1em;

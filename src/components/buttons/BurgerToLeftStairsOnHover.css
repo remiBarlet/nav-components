@@ -12,6 +12,13 @@
 /*
 * outer-div css
 */
+.burgerLeftStairsWrapper {
+    float: right;
+    cursor: pointer;
+    --fontSize: 2em;
+    font-size: var(--fontSize);
+}
+
 .burgerLeftStairs {
     height: 1em;
     width: 1em;
@@ -66,17 +73,17 @@
 /*
 * animation on hover
 */
-.burgerLeftStairs:hover .burgerLeftStairs-line-2 {
+.burgerLeftStairsWrapper:hover .burgerLeftStairs .burgerLeftStairs-line-2 {
     transform-origin: center;
     transform: scaleX(70%);
 } 
 
-.burgerLeftStairs:hover .burgerLeftStairs-line-1 {
+.burgerLeftStairsWrapper:hover .burgerLeftStairs .burgerLeftStairs-line-1 {
     transform-origin: left;
     transform: scaleX(70%) translateY(-0.25em);
 }
 
-.burgerLeftStairs:hover .burgerLeftStairs-line-3 {
+.burgerLeftStairsWrapper:hover .burgerLeftStairs .burgerLeftStairs-line-3 {
     transform-origin: right;
     transform: scaleX(70%) translateY(0.25em);
 } 
