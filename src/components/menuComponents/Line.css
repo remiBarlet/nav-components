@@ -1,0 +1,29 @@
+/*
+* author: Remi Barlet
+* email: rbarlet@protonmail.com
+* date: 20/12/2021
+*/
+li {
+    list-style: none;
+}
+
+.line {
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    --bkColor: transparent;
+    --color: #2e3131;
+    background-color: var(--bkColor);
+}
+
+.title {
+    width: 100%;
+    margin: auto;
+}
+
+.title a {
+    padding-left: 1.5em;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color);
+}
