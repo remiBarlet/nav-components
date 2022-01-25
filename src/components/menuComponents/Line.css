@@ -3,6 +3,11 @@
 * email: rbarlet@protonmail.com
 * date: 20/12/2021
 */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
 li {
     list-style: none;
 }
@@ -13,8 +18,19 @@ li {
     display: flex;
     --bkColor: transparent;
     --color: #2e3131;
+    --hoverBkColor: green;
+    --hoverColor: white;
+    --fontSize: 1em;
+    --paddingLeft: 1.5em;
+    --height: 3em;
     background-color: var(--bkColor);
+    height: var(--height);
 }
+
+.line:hover {
+    background-color: var(--hoverBkColor);
+}
+
 
 .title {
     width: 100%;
@@ -22,8 +38,12 @@ li {
 }
 
 .title a {
-    padding-left: 1.5em;
-    font-size: 1.5em;
+    padding-left: var(--paddingLeft);
+    font-size: var(--fontSize);
     font-weight: bold;
     color: var(--color);
+}
+
+.line:hover .title a {
+    color: var(--hoverColor);
 }
