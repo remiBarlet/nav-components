@@ -13,8 +13,8 @@
 */
 .btnPlusToMinusWrapper {
     float: right;
-    --fontSize: 2em;
-    font-size: var(--fontSize);
+    --height: 2em;
+    font-size: var(--height);
     cursor: pointer;
 }
 

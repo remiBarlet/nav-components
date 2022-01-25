@@ -13,13 +13,13 @@ import './BtnPlusSpinner.css'
 const BtnPlusSpinner = (props) => {
 
     let wrapperStyle = {}
-    props.fontSize && (wrapperStyle['--fontSize'] = `${ props.fontSize }em`)
+    props.height && (wrapperStyle['--height'] = `${ props.height }em`)
     let style = {}
     props.duration && (style['--duration']= `${ props.duration }ms`)
     props.btnColor && (style['--btnColor']= `${ props.btnColor }`)
 
     return(
-        <div className='btnPlusSpinnerWrapper' onClick={ props.onClick } style={ wrapperStyle }>
+        <div className='btnPlusSpinnerWrapper' onClick={ props.onClick } style={ wrapperStyle } id={ props.id }>
             <div className={`btnPlusSpinner ${props.isOpen  ? 'open' : 'closed'}`}
                  style={ style } >
                 <div className='btnPlusSpinner-lines'></div>
@@ -29,6 +29,7 @@ const BtnPlusSpinner = (props) => {
 }
 
 BtnPlusSpinner.propTypes = {
+    id: PropTypes.string,
     onClick: PropTypes.func,
     fontSize: PropTypes.number,
     isOpen: PropTypes.bool.isRequired,

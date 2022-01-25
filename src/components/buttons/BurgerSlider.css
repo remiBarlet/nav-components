@@ -14,15 +14,16 @@
 */
 .burgerWrapper {
     float: right;
-    --fontSize: 2em;
-    font-size: var(--fontSize);
+    --height: 2em;
+    font-size: var(--height);
+    margin: auto;
     cursor: pointer;
 }
 
 .burger {
-    height: 1em;
-    width: 1em;
-    margin: 0.5em;
+    height: 0.5em;
+    width: 0.5em;
+    margin: 0.25em;
     position: relative;
     cursor: pointer;
     --duration: 0.25s;
@@ -33,7 +34,7 @@
 * burger lines aspect
 */ 
 .burger .burger-lines {
-    top: calc(50% - 0.125em/2);
+    top: calc(50% - 0.0625em/2);
 }
     
 .burger .burger-lines, .burger .burger-lines:after, .burger .burger-lines:before {
@@ -41,24 +42,24 @@
     display: block;
     content: '';
     width: 100%;
-    border-radius: 0.25em;
+    border-radius: 0.125em;
     background-color: var(--burgerColor);
-    height: 0.125em;
+    height: 0.0625em;
     position: absolute;
     transform: rotate(0); 
 }
 
 .burger .burger-lines:after {
-    transform: translateY(-0.25em); 
+    transform: translateY(-0.125em); 
 }
 
 .burger .burger-lines:before {
-    transform: translateY(0.25em); 
+    transform: translateY(0.125em); 
 }
 
 .burger .burger-lines:after, .burger .burger-lines:before {
     left: 0;
-    width: 1em; 
+    width: 0.5em; 
 }
   
 /*
@@ -72,21 +73,21 @@
 * burger final aspect 
 */
 .burger.open .burger-lines {
-    transform: translateX(-1.5em);
+    transform: translateX(-0.75em);
     background-color: transparent; 
 }
 
 .burger.open .burger-lines:before, .burger.open .burger-lines:after {
-    left: 0.5em;
+    left: 0.25em;
     top: 0px; 
-    height: 0.15em;
+    height: 0.075em;
 
 }
 
 .burger.open .burger-lines:before {
-    transform: translateX(1em) rotate(45deg); 
+    transform: translateX(0.5em) rotate(45deg); 
 }
 
 .burger.open .burger-lines:after {
-    transform: translateX(1em) rotate(-45deg); 
+    transform: translateX(0.5em) rotate(-45deg); 
 }

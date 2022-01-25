@@ -13,7 +13,7 @@ import './BurgerToRightStairsOnHover.css'
 const BurgerRightStairs = (props) => {
 
     let wrapperStyle = {}
-    props.fontSize && (wrapperStyle['--fontSize'] = `${ props.fontSize }em`)
+    props.height && (wrapperStyle['--height'] = `${ props.height }em`)
     let style = {}
     props.duration && (style['--duration'] = `${ props.duration }ms`)
     props.color && (style['--burgerColor'] = `${ props.burgerColor }`)
